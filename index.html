@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ЛР №1 — Аналізатор тексту (Варіант 6)</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1>Аналізатор тексту</h1>
+    <p>Лабораторна робота №1 | Варіант 6</p>
+  </header>
+
+  <main class="app-main">
+    <!-- Секция ввода и анализа текста -->
+    <section class="analyzer-section card">
+      <h2>Аналіз тексту в реальному часі</h2>
+      
+      <form id="text-form">
+        <div class="form-group">
+          <label for="text-input">Введіть текст для аналізу:</label>
+          <textarea id="text-input" placeholder="Почніть вводити текст..." rows="6"></textarea>
+          <span class="error-message" id="input-error"></span>
+        </div>
+
+        <!-- Метрики текста -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-value" id="char-count">0</span>
+            <span class="stat-label">Символів</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value" id="word-count">0</span>
+            <span class="stat-label">Слів</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-value" id="sentence-count">0</span>
+            <span class="stat-label">Речень</span>
+          </div>
+        </div>
+
+        <button type="submit" id="save-btn" class="btn btn-primary">Зберегти в історію</button>
+      </form>
+    </section>
+
+    <!-- Подсветка текста и частотный словарь -->
+    <section class="details-section card">
+      <h2>Пошук та аналітика</h2>
+      
+      <div class="search-box">
+        <label for="search-input">Пошук фрагмента у тексті:</label>
+        <input type="text" id="search-input" placeholder="Введіть слово або подрядок...">
+      </div>
+
+      <div class="highlight-container">
+        <h3>Предперегляд з підсвічуванням:</h3>
+        <div id="highlighted-text" class="text-preview">Текст відсутній...</div>
+      </div>
+
+      <div class="dict-container">
+        <h3>Частотний словник слів:</h3>
+        <table class="dict-table">
+          <thead>
+            <tr>
+              <th>Слово</th>
+              <th>Частота</th>
+            </tr>
+          </thead>
+          <tbody id="dict-tbody">
+            <tr><td colspan="2">Введіть текст для побудови словника</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- История из localStorage -->
+    <section class="history-section card">
+      <h2>Історія аналізів</h2>
+      
+      <div class="search-box">
+        <input type="text" id="history-search" placeholder="Пошук в історії...">
+      </div>
+
+      <ul id="history-list" class="history-list"></ul>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>&copy; Технології веб-розробки</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
